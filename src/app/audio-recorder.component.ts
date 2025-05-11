@@ -25,7 +25,7 @@ export class AudioRecorderComponent {
   timerInterval: any;
   elapsedTime = 0;
   totalElapsed = 0;
-  maxDuration = 5; // max duration of each chunk in seconds
+  maxDuration = 30; // max duration of each chunk in seconds
   maxTotalDuration = 600; // 10 minutes total limit
   isStopRecordingTriggered: boolean  =false;
 
