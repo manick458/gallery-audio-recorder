@@ -1,0 +1,56 @@
+
+<mat-dialog-content class="dialog-content">
+  <div class="dialog-header">
+    <h2 mat-dialog-title>Audio Recorder</h2>
+    <button class="ml-auto" mat-icon-button (click)="onClose()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="recorder-container">
+  
+    <div class="controls">
+      <!-- <button (click)="startRecording()" [disabled]="isRecording">Start Recording</button>
+      <button (click)="pauseRecording()" [disabled]="!isRecording || isPaused">Pause</button>
+      <button (click)="resumeRecording()" [disabled]="!isPaused">Resume</button>
+      <button (click)="stopRecording()" [disabled]="!isRecording && !isPaused">Stop</button>
+      <button (click)="clearRecording()" *ngIf="recordings.length > 0 && isStopRecordingTriggered">Clear</button> -->
+      <button mat-icon-button [matTooltip]="'Start Recording'" (click)="startRecording()" [disabled]="isRecording">
+        <mat-icon>record_voice_over</mat-icon> <!-- Microphone icon for recording -->
+      </button>
+      
+      <button mat-icon-button [matTooltip]="'Pause'" (click)="pauseRecording()" [disabled]="!isRecording || isPaused">
+        <mat-icon>pause</mat-icon> <!-- Pause icon -->
+      </button>
+      
+      <button mat-icon-button [matTooltip]="'Resume'" (click)="resumeRecording()" [disabled]="!isPaused">
+        <mat-icon>play_arrow</mat-icon> <!-- Play icon for resuming -->
+      </button>
+      
+      <button mat-icon-button [matTooltip]="'Stop'" (click)="stopRecording()" [disabled]="!isRecording && !isPaused">
+        <mat-icon>stop</mat-icon> <!-- Stop icon -->
+      </button>
+      
+      <button mat-icon-button [matTooltip]="'Clear'" (click)="clearRecording()" *ngIf="recordings.length > 0 && isStopRecordingTriggered">
+        <mat-icon>clear</mat-icon> <!-- Clear icon -->
+      </button>
+    </div>
+  
+    <!-- <div class="status">
+      <p *ngIf="isRecording || isPaused">Elapsed Time: {{ elapsedTime }}s</p>
+      <p *ngIf="!isRecording && !isPaused && recordings.length">Recording stopped.</p>
+    </div> -->
+  
+    <canvas *ngIf="!isStopRecordingTriggered" #waveCanvas class="waveform-canvas"></canvas>
+  
+    <div class="recordings-list" *ngIf="recordings.length > 0 && isStopRecordingTriggered">
+      <h3>Recorded Segments</h3>
+      <ul>
+        <li *ngFor="let audio of recordings; let i = index">
+          Segment {{ i + 1 }}
+          <button (click)="playRecording(i)">Play</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</mat-dialog-content>
+

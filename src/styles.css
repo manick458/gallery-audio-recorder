@@ -1,0 +1,16 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.cdk-overlay-backdrop {
+  cursor: not-allowed;
+}
+.mat-dialog-content{
+  overflow: hidden !important;
+}
+.ml-auto{
+  margin-left: auto;
+}

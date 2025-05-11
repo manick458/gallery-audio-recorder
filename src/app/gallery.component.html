@@ -1,0 +1,25 @@
+<mat-dialog-content class="dialog-content">
+  <div class="dialog-header">
+    <h2 mat-dialog-title>Gallery</h2>
+      <span class="pl-3 count">({{ currentIndex + 1 }} / {{ images.length }})</span>
+    <button class="ml-auto" mat-icon-button (click)="onClose()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <section class="gallery-wrapper">
+    <swiper
+      [slidesPerView]="1"
+      [pagination]="{ clickable: true }"
+      (swiper)="onSwiperInit($event)"
+      (slideChange)="onSlideChange($event)">
+      <ng-template swiperSlide *ngFor="let img of images">
+        <div class="image-wrapper">
+          <img [src]="img" class="swiper-img" />
+        </div>
+      </ng-template>
+    </swiper>
+    <p class="text-center mt-2">
+    </p>
+  </section>
+</mat-dialog-content>
