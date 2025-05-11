@@ -1,0 +1,79 @@
+/* Wrapper to ensure the gallery container behaves well */
+.gallery-wrapper {
+  width: 100%;
+  max-width: 100%; /* Ensures it doesn't exceed screen width */
+  padding: 10px;
+}
+
+.count{
+  position: relative;
+    bottom: 7px;
+    left: 10px;
+}
+
+/* Centering the image and making sure it scales well */
+.image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+/* Swiper container with fixed height */
+.swiper {
+  height: 300px; /* Set specific height */
+}
+
+/* Ensuring the image fits and adjusts well */
+.swiper-img {
+  border: 3px solid #1976d2;
+  border-radius: 10px;
+  max-width: 100%;
+  height: 100%; /* Fit the image to the container height */
+  object-fit: contain; /* Maintain aspect ratio, no overflow */
+  object-position: center; /* Center image if it overflows */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Dialog Header */
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 8px;
+}
+
+/* Responsive Styles */
+
+/* For large screens (like tablets or smaller desktop screens) */
+@media (max-width: 1200px) {
+  .swiper-img {
+    max-height: 80vh;  /* Limit image height */
+    object-fit: contain;
+  }
+}
+
+/* For medium-sized screens (like tablets in portrait mode) */
+@media (max-width: 768px) {
+  .swiper-img {
+    max-height: 60vh;  /* Limit image height for better scaling */
+    object-fit: contain;
+  }
+  .gallery-wrapper {
+    padding: 5px;
+  }
+}
+
+/* For small screens (like mobile devices) */
+@media (max-width: 480px) {
+  .swiper-img {
+    max-height: 50vh;  /* Further limit image height */
+    object-fit: contain;
+  }
+  .gallery-wrapper {
+    padding: 5px;
+  }
+  .image-wrapper {
+    padding: 5px;
+  }
+}
